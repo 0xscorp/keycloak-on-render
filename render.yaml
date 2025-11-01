@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: keycloak-demo
+    env: docker
+    plan: free
+    dockerCommand: start-dev
+    envVars:
+      - key: KC_BOOTSTRAP_ADMIN_USERNAME
+        value: admin
+      - key: KC_BOOTSTRAP_ADMIN_PASSWORD
+        value: admin
+      - key: KC_HTTP_PORT
+        value: $PORT
+    port: 8080
