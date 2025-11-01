@@ -1,14 +1,15 @@
 services:
   - type: web
-    name: keycloak-demo
+    name: keycloak-on-render
     env: docker
     plan: free
+    dockerfilePath: ./Dockerfile
     dockerCommand: start-dev
+    autoDeploy: true
     envVars:
-      - key: KC_BOOTSTRAP_ADMIN_USERNAME
+      - key: KEYCLOAK_ADMIN
         value: admin
-      - key: KC_BOOTSTRAP_ADMIN_PASSWORD
+      - key: KEYCLOAK_ADMIN_PASSWORD
         value: admin
-      - key: KC_HTTP_PORT
-        value: $PORT
-    port: 8080
+    ports: 
+      - 8080
