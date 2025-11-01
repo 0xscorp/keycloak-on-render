@@ -10,7 +10,7 @@ ENV KC_METRICS_ENABLED=true
 
 # Render provides PORT dynamically; use it instead of hardcoding 8080
 ENV PORT=8080
-ENV KC_HTTP_PORT=${PORT}
+ENV KC_HTTP_PORT=8080
 
 # Expose the port Keycloak listens on
 EXPOSE 8080
@@ -19,4 +19,4 @@ EXPOSE 8080
 ENTRYPOINT ["/opt/keycloak/bin/kc.sh"]
 
 # Pass "start-dev" as the CMD
-CMD ["start-dev", "--http-port=${PORT}"]
+CMD ["start-dev", "--http-port=8080"]
